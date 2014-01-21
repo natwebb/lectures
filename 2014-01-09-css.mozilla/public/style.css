@@ -1,0 +1,191 @@
+@import url(http://fonts.googleapis.com/css?family=Duru+Sans);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,700);
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: url("images/bg-sand.png") repeat;
+  border-top: 2px solid white;
+}
+
+#main {
+  /*border: 1px solid red;*/
+  width: 960px;
+  margin: 0px auto;
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Duru Sans', sans-serif;
+  color: #c13832;
+  font-size: 80px;
+  letter-spacing: -0.08em;
+  margin: 0px;
+  padding-bottom: 0;
+  clear: both;
+}
+
+h2 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 55px;
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  margin-top: -15px;
+}
+
+nav ul {
+  margin: 0 0 5px 0;
+  float: right;
+}
+
+nav li {
+  display: inline-block;
+  list-style: none;
+  padding: 0px 20px 0px 15px;
+}
+
+nav a {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+  text-decoration: none;
+  color: #484848;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+#mozilla {
+  width: 100px;
+  height: 25px;
+  background-color: white;
+  border-radius: 0 0 10px 10px;
+  margin-left: 29px;
+  padding: 8px 0 5px 0;
+  text-align: center;
+}
+
+#mozilla a {
+  font-family: 'Duru Sans', sans-serif;
+  font-size: 1.2em;
+  text-transform: lowercase;
+}
+
+/* Accordion */
+#accordion {
+  margin: 32px 0 60px 0;
+  padding: 0;
+  box-shadow: 0 107px 50px -100px;
+}
+
+#accordion li {
+  display: inline-block;
+  list-style: none;
+  width: 25%;
+  height: 370px;
+  padding: 0;
+  margin-top: 0;
+  transition: width 2s;
+}
+
+#accordion:hover > li {
+  width: 10%;
+}
+
+#accordion li:hover {
+  width: 70%;
+}
+
+#accordion a {
+  display: inline-block;
+  padding-top: 290px;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: white;
+}
+
+span {color: red;}
+
+#lightbeam {
+  background-color: #424f5a;
+  background-image: url("images/logo-lightbeam.png");
+  background-size: 140%;
+  background-repeat: no-repeat;
+  background-position: -80px 20px;
+}
+
+#firefox {
+  background-color: royalblue;
+  background-image: url("images/firefoxos-fox.png");
+  background-size: 138%;
+  background-repeat: no-repeat;
+  background-position: -95px -90px;
+  margin-left: -4px;
+}
+
+#addons {
+  background-color: darkorange;
+  background-image: url("images/bg-addons-en.png");
+  background-size: 125%;
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+  margin-left: -4px;
+}
+
+#learn {
+  background-color: lightgray;
+  background-image: url("images/logo-webmaker.png");
+  background-size: 140%;
+  background-repeat: no-repeat;
+  background-position: -95px 20px;
+  margin-left: -4px;
+}
+
+/* Logo Div */
+#logo {
+  background-color: white;
+  height: 150px;
+}
+
+#logopic {
+  width: 960px;
+  height: 100%;
+  margin: auto;
+  background-image: url("images/firefox-sm.png"), url("images/freedownload.png");
+  background-repeat: no-repeat, no-repeat;
+  background-position: left center, right center;
+}
+
+#logopic p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 35px;
+  letter-spacing: -0.03em;
+  padding: 45px 0 0 130px;
+}
+
+/* News */
+#news {
+  background-color: #c1423d;
+  height: 280px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 35px;
+  letter-spacing: -0.03em;
+  text-align: center;
+  color: white;
+}
+
+/* Footer */
+footer {
+  background-color: white;
+  height: 205px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 35px;
+  letter-spacing: -0.03em;
+  text-align: center;
+  color: gray;
+}

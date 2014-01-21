@@ -1,0 +1,63 @@
+@import url(http://fonts.googleapis.com/css?family=Dancing+Script:400,700);
+
+body {
+  padding: 5px;
+  background-color: black;
+}
+
+h1 {
+  font-family: 'Dancing Script', cursive;
+  text-align: center;
+  font-size: 40px;
+  color: #FF66FF;
+}
+
+#top-inputs, #second-inputs {
+  text-align: center;
+  margin-top: 10px;
+}
+
+#colors {
+  height: 58px;
+  border: 1px solid rgba(120, 10, 190, 0.5);
+  border-radius: 5px;
+  background-color: white;
+  overflow: hidden;
+  margin: 8px 4px;
+}
+
+.color {
+  margin: 2px;
+  width: 50px;
+  height: 50px;
+  float: left;
+  border: 2px outset;
+}
+
+input[type='button'] {
+  color: white;
+  background-color: rgba(120, 10, 190, 0.5);
+}
+
+.selected {
+  border: inset;
+}
+
+.clear {
+  clear: both;
+}
+
+.pixel {
+  width: 5px;
+  height: 5px;
+  //margin: 1px;
+  //border: 1px dashed black;
+  float: left;
+}
+
+#pixels {
+  display: none;
+  border: 5px gainsboro outset;
+  background-color: white;
+  margin: 8px 4px;
+}

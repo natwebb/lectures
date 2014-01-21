@@ -1,0 +1,18 @@
+@primary: #ff0000;
+@secondary: #00ff00;
+
+h1 {
+  background-color: @primary;
+  color: @secondary;
+  border: 2px dashed @secondary;
+  padding: 5px;
+  margin: 10px;
+}
+
+h2 {
+  background-color: desaturate(@primary, 40%);
+  color: @secondary;
+  border: 2px dashed @secondary;
+  padding: 5px;
+  margin: 10px;
+}

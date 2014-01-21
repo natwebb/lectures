@@ -1,0 +1,125 @@
+@import url(http://fonts.googleapis.com/css?family=Press+Start+2P);
+@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:300,400,700);
+
+/*---------------General---------------*/
+* {
+  border: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Press Start 2P', cursive;
+  background-image: url('/images/graph.jpg');
+}
+
+#wrapper {
+  width: 30%;
+  height: 400px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 2px 7px 10px 7px;
+  background: white;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 20px 25px rgba(255, 255, 255, 0.9), 0 0 10px 10px rgba(255, 255, 255, 0.9);
+}
+
+/*---------------Title----------------*/
+h1 {
+  height: 10%;
+  font-size: 1.7vw;
+  text-align: center;
+  line-height: 1.5em;
+  transition: color 1s;
+}
+
+h1:hover {
+  color: red;
+}
+
+/*---------------Display--------------*/
+#display {
+  width: 97%;
+  height: 10%;
+  background-color: skyblue;
+  border-radius: 10px;
+  box-shadow: -2px -2px 3px #AAA inset;
+  margin-bottom: 1.5%;
+  line-height: 2.5em;
+  padding-right: 3%;
+  text-align: right;
+}
+
+/*---------------Keypad---------------*/
+#buttons {
+  float: left;
+  width: 65%;
+  height: 80%;
+  background-color: steelblue;
+}
+
+.buttonrow {
+  clear: both;
+  width: 100%;
+  height: 20%;
+}
+
+.button {
+  float: left;
+  height: 100%;
+  width: 23%;
+  padding: 0 1%;
+  text-align: center;
+  box-shadow: -1px -1px 2px rgba(0,0,0,.3) inset;
+  line-height: 4em;
+  font-size: 1.1vw;
+}
+
+.button:hover {
+  color: yellow;
+}
+
+/*---Individual Buttons---*/
+#push {
+  font-size: 0.9vw;
+  line-height: 5em;
+}
+
+#sigma {
+  display: block;
+  line-height: 3.8em;
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+}
+
+#plusmin {
+  font-size: 0.9vw;
+  line-height: 5em;
+}
+
+#pow {
+  line-height: 3.6em;
+}
+
+.superscript {
+  vertical-align: super;
+  font-size: 0.8vw;
+}
+
+/*---------------Queue---------------*/
+#queue {
+  float: left;
+  width: 33%;
+  height: 80%;
+  margin-left: 1%;
+  padding-left: 1%;
+  background-color: ghostwhite;
+  box-shadow: -1px -1px 2px #AAA inset;
+  font-family: 'Source Code Pro', sans-serif;
+  font-weight: 300;
+  color: steelblue;
+  overflow: hidden;
+}

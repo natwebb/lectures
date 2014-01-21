@@ -1,0 +1,50 @@
+* {
+  font-family: monospace;
+}
+
+h1 {
+  color: red;
+}
+
+div {
+  color: green;
+}
+
+a[href] {
+  border: 1px solid red;
+}
+
+a[href^="http"] {
+  background-color: yellow;
+}
+
+#first-name {
+  background-color: orange;
+  color: red;
+}
+
+#last-name {
+ color: purple;
+}
+
+.name{
+  font-size: 25px;
+}
+
+#one {
+  border: 1px dashed blue;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.x1 {
+  color: red;
+}
+
+#one p {
+  background-color: purple;
+}
+
+#one > p {
+  letter-spacing:4px;
+}

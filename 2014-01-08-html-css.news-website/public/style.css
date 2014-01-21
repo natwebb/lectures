@@ -1,0 +1,39 @@
+@import url(http://fonts.googleapis.com/css?family=Montserrat+Alternates);
+@import url(http://fonts.googleapis.com/css?family=Cardo);
+
+header {
+  color: red;
+  border: 4px double green;
+}
+
+header h1 {
+  margin-left: 20px;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 75px;
+}
+
+body {
+  background: url(/images/tile.gif);
+}
+
+p {
+  font-family: 'Cardo', serif;
+  color: coral;
+  letter-spacing: 1px;
+  line-height: 20px;
+}
+
+a {
+  border: 1px dashed steelblue;
+  text-decoration: none;
+  background-color: coral;
+  color: steelblue;
+  padding: 3px;
+  letter-spacing: 1px;
+  border-radius: 10%;
+}
+
+a:hover {
+  background-color: steelblue;
+  color: coral;
+}
