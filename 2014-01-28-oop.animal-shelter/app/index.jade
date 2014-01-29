@@ -1,0 +1,77 @@
+doctype html
+//[if IE 9]><html class="lt-ie10" lang="en" > <![endif]
+html(class='no-js', lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Animal Shelter
+    link(rel='stylesheet', href='/css/normalize.css')
+    link(rel='stylesheet', href='/css/foundation.css')
+    link(rel='stylesheet', href='/css/app.css')
+    script(src='/js/vendor/modernizr.js')
+  body
+    .row
+      .small-12.columns
+        h1 Animal Shelter
+    .row
+      form.small-12.columns
+        fieldset
+          legend Enter New Animal
+          .row
+            .small-3.columns
+              .button.expand.small.alert#add-animal Add Animal
+          .row
+            .small-6.columns
+              label Name
+              input#name(type='text', placeholder='Name')
+            .small-6.columns
+              label Species
+              input#species(type='text', placeholder='Species')
+          .row
+            .small-4.columns
+              label Gender
+              input#gender(type='text', placeholder='Gender')
+            .small-4.columns
+              label Age
+              input#age(type='text', placeholder='Age')
+            .small-4.columns
+              label Color
+              input#color(type='text', placeholder='Color')
+          .row
+            .small-12.columns
+              label Description
+              textarea#description(placeholder='Description')
+          .row
+            .small-12.columns
+              label Add a Photograph
+              .row.collapse
+                .small-1.columns
+                  span.prefix URL
+                .small-9.columns
+                  input#photo(type='text', placeholder='Add a photograph URL')
+                .small-2.columns
+                  button.button.postfix#add-photo Add Photo
+            .row
+              #photos.small-12.columns
+    .row
+        .small-12.columns
+          table#animalTable
+            thead
+              th Name
+              th Species
+              th Gender
+              th Age
+              th Color
+              th Description
+              th Pictures
+            tbody
+
+    script(src='/js/vendor/jquery.js')
+    script(src='/js/vendor/foundation.js')
+    script(src='/js/vendor/lodash.js')
+    script(src='/js/source/animal.js')
+    script(src='/js/source/animal_factory.js')
+    script(src='/js/source/main.js')
+    script.
+      $(document).foundation()
+

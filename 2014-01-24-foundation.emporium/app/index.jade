@@ -1,0 +1,52 @@
+doctype html
+//[if IE 9]><html class="lt-ie10" lang="en" > <![endif]
+html(class='no-js', lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title The Emporium
+    link(rel='stylesheet', href='css/normalize.css')
+    link(rel='stylesheet', href='css/foundation.css')
+    link(rel='stylesheet', href='css/app.css')
+    script(src='js/vendor/modernizr.js')
+  body
+    .row
+      .small-12.columns
+        .panel
+          h1 The Emporium
+    .row
+      .small-8.columns
+        form
+          .row
+            .small-6.columns
+              label Item
+              input#item(type='text', placeholder='iPod touch', autofocus)
+            .small-2.columns
+              label Quantity
+              input#quantity(type='text', placeholder='3')
+            .small-2.columns
+              label Amount
+              input#amount(type='text', placeholder='9.99')
+            .small-2.columns
+              label &nbsp;
+              button.tiny.radius#add-item Add
+      .small-4.columns
+        table
+          thead
+            tr
+              th Item
+              th Quantity
+              th Price
+              th Total
+          tfoot
+            tr
+              td
+              td
+              td $0.00
+              td $0.00
+          tbody
+
+    script(src='js/vendor/jquery.js')
+    script(src='js/vendor/foundation.js')
+    script(src='js/source/main.js')
+    script $(document).foundation();

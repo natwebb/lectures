@@ -1,0 +1,31 @@
+doctype html
+//[if IE 9]><html class="lt-ie10" lang="en" > <![endif]
+html(class='no-js', lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Color Timers
+    link(rel='stylesheet', href='/css/normalize.css')
+    link(rel='stylesheet', href='/css/foundation.css')
+    link(rel='stylesheet', href='/css/app.css')
+    script(src='/js/vendor/modernizr.js')
+  body
+    .row
+      .small-12.columns
+        h1 Color Timer Demo
+    .row
+      .small-2.columns
+        button.radius.tiny#start Start
+      .small-2.columns
+        button.radius.alert.tiny#stop Stop
+      .small-8.columns
+        button.radius.tiny#reset Reset
+    .row
+      .small-12.columns
+        #container
+
+    script(src='/js/vendor/jquery.js')
+    script(src='/js/vendor/foundation.js')
+    script(src='/js/source/main.js')
+    script $(document).foundation();
+
