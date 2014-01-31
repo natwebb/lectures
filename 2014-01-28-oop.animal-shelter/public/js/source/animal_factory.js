@@ -34,7 +34,7 @@
     animals.push(animal);
 
     photos = [];
-    photos[0] = 'url(http://hedweb.com/animimag/parrot.jpg)';
+    photos[0] = 'url(http://upload.wikimedia.org/wikipedia/commons/e/ed/Ara_macao_-on_a_small_bicycle-8.jpg)';
     photos[1] = 'url(http://www.fxdirectory.info/wp-content/uploads/2011/05/Red-Parrot-which-has-its-own-uniqueness.jpg)';
     animal = new Animal('Sherlock', 'Bird', 'Male', '10', 'Multicolored', 'Parrot who repeats everything you say', photos);
     animals.push(animal);
