@@ -1,4 +1,4 @@
-/* global Client, Portfolio, asyncTest, start, test, ok, deepEqual, Stock, throws: false */
+/* global Client, Portfolio, asyncTest, start, stop, test, ok, deepEqual, Stock, throws: false */
 
 'use strict';
 
@@ -8,10 +8,6 @@ test('Stock#new', function() {
   throws(function(){
     s1.symbol = 'abc';
   }, 's1 should not be able to set symbol on s1');
-
-  throws(function(){
-    s1.shares = 100;
-  }, 's1 should not be able to alter the share amount');
 
   throws(function(){
     s1.purchaseAmount = 10;
@@ -101,11 +97,12 @@ test('Portfolio#delStock', function() {
 });
 
 test('Client#new', function() {
-  var c1 = new Client('Wilbur Henderson');
+  var c1 = new Client('Wilbur Henderson', 100000);
 
   ok(c1 instanceof Client, 'c1 should be an instance of Client');
   deepEqual(c1.name, 'Wilbur Henderson', 'c1 name should be Wilbur Henderson');
   deepEqual(c1.portfolioCount, 0, 'Should be zero portfolios inside c1');
+  deepEqual(c1.cash, 100000, 'client should have $100,000');
 });
 
 test('Client#addPortfolio', function() {
@@ -155,10 +152,59 @@ test('Client#delPortfolio', function() {
   var testPorts = c2.delPortfolio(['Illegal Guns','Pig Stocks']);
 
   deepEqual(c1.portfolioCount, 3, 'should still have 3 portfolios in c1');
-  deepEqual(testPort.name, 'Pictures of Horses', 'deleted portfolio gotten should have name Pictures of Horses');
-  ok(!badTestPort, 'deleting nonexistent portfolio should return nothing');
+  deepEqual(testPort[0].name, 'Pictures of Horses', 'deleted portfolio gotten should have name Pictures of Horses');
+  ok(!badTestPort[0], 'deleting nonexistent portfolio should return nothing');
   deepEqual(c2.portfolioCount, 2, 'should still have 2 portfolios in c2');
   deepEqual(testPorts.length, 2, 'should have taken out 2 portfolios');
-  deepEqual(testPorts[0].name, 'Illegal Guns', 'first deleted portfolio gotten from c2 should have name Illegal Guns');
-  deepEqual(testPorts[1].name, 'Pig Stocks', 'second deleted portfolio gotten from c2 should have name Pig Stocks');
+  deepEqual(testPorts[1].name, 'Illegal Guns', 'second deleted portfolio gotten from c2 should have name Illegal Guns');
+  deepEqual(testPorts[0].name, 'Pig Stocks', 'first deleted portfolio gotten from c2 should have name Pig Stocks');
 });
+
+asyncTest('Client#purchaseStock', function(){
+  stop();
+  var c1 = new Client('Jonas Flipburger', 100000);
+  var c2 = new Client('Sheila Flipburger', 100000);
+  var p1 = new Portfolio('Tech Stocks');
+
+  c1.addPortfolio(p1);
+
+  c1.purchaseStock('AAPL', 10, function(stock){
+    if(stock){
+      p1.addStock(stock);
+    }
+    deepEqual(c1.portfolioCount, 1, 'Jonas should have one portfolio');
+    deepEqual(p1.stockCount, 1, 'Jonas should have one purchased stock');
+    ok(c1.cash < 100000, 'Jonas dollar balance should be less than the starting balance');
+    deepEqual(stock.symbol, 'AAPL', 'Jonas the Apple fanboy got his stock');
+    deepEqual(stock.shares, 10, '10 big ones in the account for Jonas');
+    start();
+  });
+
+  c2.purchaseStock('AMZN', 5000, function(stock){
+    ok(!stock, 'purchaseStock should not have created a stock object');
+    ok(c2.cash === 100000, 'Sheila should still have a full bank balance');
+    start();
+  });
+});
+
+asyncTest('Client#sellStock', function(){
+  stop();
+  var c1 = new Client('Winston Shortbread', 100000);
+  var c2 = new Client('Jezzebel Shortbread', 50000);
+  var s1 = new Stock('AAPL', 50, 10);
+
+  c1.sellStock(s1, 25, function(stock){
+    ok(stock instanceof Stock, 'should be a Stock');
+    deepEqual(stock.symbol, 'AAPL', 'Winston should have a new stock object with AAPL stock');
+    deepEqual(stock.shares, 25, 'Winston should have 25 shares in his new stock object for AAPL');
+    ok(c1.cash > 100000, 'Winston should have more than $100k');
+    start();
+  });
+
+  c2.sellStock(s1, 500, function(stock){
+    ok(!stock, 'Jezzebel has nothing to sell');
+    ok(c2.cash === 50000, 'Account balance for Jezzebel remains unchanged');
+    start();
+  });
+});
+

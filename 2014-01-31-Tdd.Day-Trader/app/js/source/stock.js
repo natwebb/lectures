@@ -15,7 +15,8 @@ var Stock = (function(){
   });
 
   Object.defineProperty(Stock.prototype, 'shares', {
-    get: function(){return this._shares;}
+    get: function(){return this._shares;},
+    set: function(n){this._shares = n;}
   });
 
   Object.defineProperty(Stock.prototype, 'purchaseAmount', {
@@ -32,26 +33,6 @@ var Stock = (function(){
     });
   };
 
-/*
-  Stock.prototype.getValue = function(fn) {
-    this.getQuote(function(quote){
-      var total = quote.LastPrice * shares;
-      fn(total);
-    });
-  };
-/*
-  Stock.prototype.getSymbol = function() {
-    return symbol;
-  };
-
-  Stock.prototype.getShares = function() {
-    return shares;
-  };
-
-  Stock.prototype.getPurchaseAmount = function() {
-    return purchaseAmount;
-  };
-*/
   return Stock;
 
 })();
