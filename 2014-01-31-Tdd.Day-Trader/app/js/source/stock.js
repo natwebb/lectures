@@ -1,5 +1,3 @@
-/* jshint unused: false */
-
 var Stock = (function(){
 
   'use strict';
