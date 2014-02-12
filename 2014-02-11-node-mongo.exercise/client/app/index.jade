@@ -1,0 +1,56 @@
+doctype html
+//[if IE 9]><html class="lt-ie10" lang="en" > <![endif]
+html(class='no-js', lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Node Mongo Exercise
+    link(rel='stylesheet', href='/css/normalize.css')
+    link(rel='stylesheet', href='/css/foundation.css')
+    link(rel='stylesheet', href='/css/app.css')
+    script(src='/js/vendor/modernizr.js')
+  body
+    .row
+      .small-12.columns
+        h1 Node/Mongo Exercise App
+    .row
+      .small-8.columns
+        table#exercises
+          thead
+            tr
+              th Name
+              th Time
+              th Calories
+              th Date
+          tbody
+      .small-4.columns
+          .row
+            .small-12.columns
+              label Name
+              input#name
+          .row
+            .small-12.columns
+              label Time
+              input#time
+          .row
+            .small-12.columns
+              label Calories
+              input#cals
+          .row
+            .small-12.columns
+              label Date
+              input#date
+          .row
+            .small-12.columns
+              label &nbsp;
+              button.small#create-exercise Create Exercise
+    .row
+      .small-12.columns
+        select#names
+        button#query Query
+
+    script(src='/js/vendor/jquery.js')
+    script(src='/js/vendor/foundation.js')
+    script(src='/js/vendor/lodash.js')
+    script(src='/js/source/main.js')
+

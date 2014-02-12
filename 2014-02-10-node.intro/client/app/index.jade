@@ -1,0 +1,59 @@
+doctype html
+//[if IE 9]><html class="lt-ie10" lang="en" > <![endif]
+html(class='no-js', lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title node.js
+    link(rel='stylesheet', href='/css/normalize.css')
+    link(rel='stylesheet', href='/css/foundation.css')
+    link(rel='stylesheet', href='/css/app.css')
+    script(src='/js/vendor/modernizr.js')
+  body
+    .row
+      .small-12.columns
+        h1 node.js
+    .row
+      .small-2.columns
+        button#one One
+      .small-2.columns
+        button#two Two
+      .small-8.columns
+    .row
+      .small-2.columns
+        input(type='text' placeholder='Number 1')#num1
+      .small-2.columns
+        input(type='text' placeholder='Number 1')#num2
+      .small-4.columns
+        button#add Add
+      .small-4.columns
+        #sum
+    .row
+      .small-2.columns
+        input(type='text' placeholder='Name')#name
+      .small-2.columns
+        input(type='text' placeholder='Age')#age
+      .small-4.columns
+        Button#canDrink Can Drink?
+      .small-4.columns
+        #drinkResponse
+    .row
+      .small-4.columns
+        input(type='text' placeholder='Numbers')#numbers
+      .small-4.columns
+        Button#product-button Product
+      .small-4.columns
+        #productResponse
+    .row
+      .small-4.columns
+        input(type='text' placeholder='Names')#names
+      .small-4.columns
+        Button#names-button Calculate
+      .small-4.columns
+        #namesResponse
+
+    script(src='/js/vendor/jquery.js')
+    script(src='/js/vendor/foundation.js')
+    script(src='/js/vendor/lodash.js')
+    script(src='/js/source/main.js')
+
