@@ -27,14 +27,11 @@
 
   function queryList(){
     $('#names').empty();
-    var $all = $('<option>');
-    $all.text('All');
-    $('#names').append($all);
     var url = window.location.origin.replace(/(\d){4}/g, '4000');
     url += '/exercises';
     $.getJSON(url, function(data){
       var uniques = _.uniq(data.exercises, 'name');
-      console.log(uniques);
+      uniques.unshift({name:'All'});
       _.forEach(uniques, function(e){
         var $opt = $('<option>');
         $opt.text(e.name);
