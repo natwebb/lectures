@@ -1,5 +1,5 @@
-@import url(http://fonts.googleapis.com/css?family=Nova+Round);
-@bg-color: #FFF;
+@import url(http://fonts.googleapis.com/css?family=Quicksand);
+@bg-color: #FAECDA;
 
 body{
   background-color: @bg-color;
@@ -9,12 +9,29 @@ input{
   width: 100%;
 }
 
+h1{
+  text-align: center;
+  color: #1E4147;
+}
+
+#movie{
+  background-color: #FFF;
+}
+
 .movieBox{
   height: 400px;
-  width: 100%;
-  margin: 0px 0px 10px 0px;
-  background-color: lightgray;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 10px;
+  border-right: 1px solid rgba(30, 65, 71, 0.5);
   border-radius: 10px;
+  position: relative;
+  opacity: 0.6;
+  background-color: #FFF;
+}
+
+.movieBox:hover{
+  opacity: 1;
 }
 
 .posterBox{
@@ -27,21 +44,46 @@ input{
 }
 
 .movieTextBox{
-  width: 700px;
+  width: 500px;
   margin: 50px 0px 0px 10px;
-  font-family: 'Nova Round', cursive;
+  font-family: 'Quicksand', sans-serif;
   font-size: 19px;
   list-style: none;
   float: left;
+  color: #1E4147;
+}
+
+.actionButton{
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: 10px;
+  font-size: 50px;
+  line-height: 50px;
+  color: #FFF;
+  cursor: pointer;
+  text-shadow: 2px 2px rgba(243, 74, 83, .5);
+}
+
+.actionButton:hover{
+  color: #F34A53;
+}
+
+.deleteX{
+  top: 10px;
+}
+
+.updateU{
+  bottom: 10px;
 }
 
 .searchable {
-  color: steelblue;
+  color: #437356;
   cursor: pointer;
 }
 
 .searchable:hover {
-  color: white;
+  color: #AAC789;
 }
 
 .hide{

@@ -4,7 +4,7 @@ html(class='no-js', lang='en')
   head
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    title Foundation 5
+    title Mongo Movie DB
     link(rel='stylesheet', href='/css/normalize.css')
     link(rel='stylesheet', href='/css/foundation.css')
     link(rel='stylesheet', href='/css/app.css')
@@ -17,7 +17,6 @@ html(class='no-js', lang='en')
       .small-12.columns
         form#movie.hide
           fieldset
-            legend Movie
             .row
               .small-12.columns
                 label Title
@@ -48,7 +47,8 @@ html(class='no-js', lang='en')
                   input(placeholder='Poster URL', name='poster')
             .row
               .small-2.small-offset-5.columns
-                button.alert Submit
+                button#addMovie.alert Add Movie
+                button#updateMovie.alert.hide Update Movie
     .row
       .small-2.small-offset-4.columns
         button#toggleForm Toggle Form
