@@ -118,8 +118,7 @@
       var $span = $('<span>');
       $span.addClass('searchable');
       $span.attr('data-infotype', 'actors');
-      $span.text(actor + ', ');
-      if(movie.actors.indexOf(actor)===(movie.actors.length-1)){$span.text(actor);}
+      $span.text(actor + ' ');
       $actors.append($span);
     });
     $text.append($actors);
