@@ -1,0 +1,16 @@
+body {
+  background-color: #ffffff;
+}
+.hide {
+  display: hidden;
+}
+table {
+  width: 100%;
+}
+th,
+td {
+  width: 25%;
+}
+button {
+  margin: 0px;
+}

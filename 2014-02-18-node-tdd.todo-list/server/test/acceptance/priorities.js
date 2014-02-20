@@ -81,7 +81,7 @@ describe('priorities', function(){
     });
   });
 
-  describe('PUT /dogs/id', function(){
+  describe('PUT /priorities/id', function(){
     it('should update one priority by ID', function(done){
       Priority.findByName('Medium', function(priority){
         var id = priority._id.toString();
@@ -98,7 +98,7 @@ describe('priorities', function(){
     });
   });
 
-  describe('DELETE /dogs/id', function(){
+  describe('DELETE /priorities/id', function(){
     it('should delete one priority by ID', function(done){
       Priority.findByName('Medium', function(priority){
         var id = priority._id.toString();
@@ -106,7 +106,7 @@ describe('priorities', function(){
         .del('/priorities/' + id)
         .end(function(err, res){
           expect(res.body.count).to.equal(1);
-          expect(res.body.deletedPriority).to.be.ok;
+          expect(res.body.deletedTodo).to.be.ok;
           done();
         });
       });
