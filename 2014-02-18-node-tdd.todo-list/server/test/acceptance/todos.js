@@ -78,6 +78,31 @@ describe('to-dos', function(){
     });
   });
 
+  describe('GET /todos?query', function(){
+    it('should return two to-dos in descending date order with tag self-care', function(done){
+      request(app)
+      .get('/todos?tag=self-care&sort=dueDate&order=desc')
+      .end(function(err, res){
+        console.log(res.body.todos);
+        expect(res.body.todos).to.have.length(2);
+        expect(res.body.todos[0].name).to.equal('Gym');
+        done();
+      });
+    });
+
+    it('should return all to-dos in ascending isComplete order', function(done){
+      request(app)
+      .get('/todos?sort=isComplete&order=asc')
+      .end(function(err, res){
+        console.log('--------HERE IT IS-------');
+        console.log(res.body.todos);
+        expect(res.body.todos).to.have.length(3);
+        expect(res.body.todos[0].isComplete).to.be.false;
+        done();
+      });
+    });
+  });
+
   describe('GET /todos/id', function(){
     it('should return one todo by id', function(done){
       request(app)
@@ -85,6 +110,18 @@ describe('to-dos', function(){
       .end(function(err, res){
         expect(res.body._id).to.equal(tId);
         expect(res.body.name).to.equal('Homework');
+        done();
+      });
+    });
+  });
+
+  describe('GET /todos/page/:limit/:page', function(){
+    it('should return todos by page', function(done){
+      request(app)
+      .get('/todos')
+      .end(function(err, res){
+        expect(res.body.todos).to.have.length(3);
+        expect(res.body.todos[0].name).to.be.ok;
         done();
       });
     });
@@ -109,7 +146,7 @@ describe('to-dos', function(){
       .del('/todos/'+tId)
       .end(function(err, res){
         expect(res.body.count).to.equal(1);
-        expect(res.body.deletedTodo).to.be.ok;
+        expect(res.body.deletedTodo.name).to.be.ok;
         done();
       });
     });

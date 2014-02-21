@@ -106,7 +106,7 @@ describe('priorities', function(){
         .del('/priorities/' + id)
         .end(function(err, res){
           expect(res.body.count).to.equal(1);
-          expect(res.body.deletedTodo).to.be.ok;
+          expect(res.body.deletedPriority).to.be.ok;
           done();
         });
       });

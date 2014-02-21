@@ -14,10 +14,16 @@ exports.create = function(req, res){
 
 exports.index = function(req, res){
   init();
-
-  Todo.findAll(function(records){
-    res.send({todos:records});
-  });
+  if(req.query){
+    Todo.masterFind(req.query, function(records){
+      res.send({todos:records});
+    });
+  }
+  else{
+    Todo.findAll(function(records){
+      res.send({todos:records});
+    });
+  }
 };
 
 exports.show = function(req, res){
@@ -50,7 +56,6 @@ exports.searchBy = function(req, res){
   init();
 
   if(req.params.search==='priority'){
-    console.log('SEARCHING BY PRIORITY');
     Todo.findByPriority(req.params.data, function(records){
       res.send({todos:records});
     });

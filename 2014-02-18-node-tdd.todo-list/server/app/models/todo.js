@@ -2,7 +2,9 @@
 
 module.exports = Todo;
 var todos = global.nss.db.collection('todos');
+//var Priority = global.nss.Priority;
 var mongodb = require('mongodb');
+//var _ = require('lodash');
 
 function Todo(data){
   this.name = data.name;
@@ -30,6 +32,47 @@ Todo.findAll = function(fn){
     fn(records);
   });
 };
+
+Todo.masterFind = function(data, fn){
+  var page, sort, limit;
+  var query = {};
+  if(data.tag){
+    query.tags = data.tag;
+  }
+  if(data.priorityId){
+    query.priorityId = new mongodb.ObjectID(data.priorityId);
+  }
+  if(data.page){
+    page = parseInt(data.page);
+  }
+  if(data.limit){
+    limit=parseInt(data.limit);
+  }else{
+    limit=10;
+  }
+
+  var skip = limit*(page-1);
+
+  if(data.sort){
+    sort=[[data.sort, data.order]];
+  }
+
+  todos.find(query).sort(sort).skip(skip).limit(limit).toArray(function(err, records){
+    fn(records);
+    /*if(data.sort!=='priority'){fn(records);}
+    else{
+      console.log('SORTING BY PRIORITY VALUE!!!!!');
+      var sortedRecords = _.sortBy(records, function(todo){
+        Priority.findById(todo.priorityId.toString(), function(priority){
+          console.log(priority.value);
+          return priority.value;
+        });
+      });
+      fn(sortedRecords);
+    }*/
+  });
+};
+
 
 Todo.findById = function(idString, fn){
   var id = new mongodb.ObjectID(idString);
@@ -59,6 +102,13 @@ Todo.findByTag = function(tag, fn){
 
 Todo.findByName = function(name, fn){
   todos.find({name:name}).toArray(function(err, records){
+    fn(records);
+  });
+};
+
+Todo.findByPage = function(limit, page, fn){
+  var skip = limit*(page-1);
+  todos.find().skip(skip).limit(limit).toArray(function(err, records){
     fn(records);
   });
 };
