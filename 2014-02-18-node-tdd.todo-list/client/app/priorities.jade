@@ -4,7 +4,7 @@ html(class='no-js', lang='en')
   head
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    title To-Do
+    title Edit Priorities
     link(rel='stylesheet', href='/css/normalize.css')
     link(rel='stylesheet', href='/css/foundation.css')
     link(rel='stylesheet', href='/css/app.css')
@@ -12,7 +12,7 @@ html(class='no-js', lang='en')
   body
     .row
       .small-12.columns
-        h1 To-Do
+        h1 Edit Priorities
     .row
       form#priority
         fieldset
@@ -33,9 +33,11 @@ html(class='no-js', lang='en')
           th
           th
         tbody
+    .row
+      a(href='index.html') See To-Dos
 
     script(src='/js/vendor/jquery.js')
     script(src='/js/vendor/foundation.js')
     script(src='/js/vendor/lodash.js')
-    script(src='/js/source/main.js')
+    script(src='/js/source/priorities.js')
 

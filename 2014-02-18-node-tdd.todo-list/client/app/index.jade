@@ -14,24 +14,50 @@ html(class='no-js', lang='en')
       .small-12.columns
         h1 To-Do
     .row
+      //#controlTab
       table#todoTable
         thead
-          th Completed
-          th Name
-          th Due Date
-          th Priority
-          th Tags
-        tbody
           tr
+            th#completeHead(data-sort='asc', data-name='isComplete') Completed
+            th Name
+            th#dateHead(data-sort='desc', data-name='dueDate') Due Date
+            th Priority
+            th Tags
+            th
+          tr#newTodoRow
             td
+              input(type='checkbox')#isComplete
             td
               input(placeholder='Name', name='name', autofocus)#name
             td
-              input(placeholder='01/01/2000', name='dueDate')#dueDate
+              input(placeholder='01/01/1999', name='dueDate')#dueDate
             td
               select#priority
             td
               input(placeholder='Tag 1, Tag 2, Tag 3', name='tags')#tags
+            td
+              button.small#newTodo Create
+          #toggleNewTodo
+            div New
+            div &#10146;
+        tbody
+    .row.center
+      .small-3.columns
+        #previousPage &larr; Previous Page
+      .small-2.columns
+        label(for='perPage') Items per Page
+        input#perPage(placeholder='10', name='perPage')
+      .small-2.columns
+        button.small#updatePage Update
+      .small-2.columns
+        button.small#showAll Show All
+      .small-3.columns
+        #nextPage Next Page &rarr;
+    .row
+      .small-3.columns
+        a(href='priorities.html') Edit Priorities
+      .small-9.columns
+        #pageBox
 
     script(src='/js/vendor/jquery.js')
     script(src='/js/vendor/foundation.js')

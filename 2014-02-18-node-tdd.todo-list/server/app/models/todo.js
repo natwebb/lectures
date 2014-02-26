@@ -2,20 +2,18 @@
 
 module.exports = Todo;
 var todos = global.nss.db.collection('todos');
-//var Priority = global.nss.Priority;
 var mongodb = require('mongodb');
-//var _ = require('lodash');
 
 function Todo(data){
   this.name = data.name;
-  if(data.dueDate instanceof Date||data.dueDate.match(/(\d){2}\/(\d){2}\/(\d){4}/)){
-    this.dueDate = new Date(data.dueDate);
-  }
+  //if(data.dueDate instanceof Date||data.dueDate.match(/(\d){4}-(\d){2}-(\d){2}/)){
+  this.dueDate = new Date(data.dueDate);
+  //}
   this.isComplete = data.isComplete || false;
   if(data.tags instanceof Array){
     this.tags = data.tags;
   }else{
-    this.tags = data.tags.split(', ');
+    this.tags = data.tags.split(',').map(function(tag){return tag.trim();});
   }
   this.priorityId = data.priorityId;
   this._id = data._id;
@@ -59,17 +57,6 @@ Todo.masterFind = function(data, fn){
 
   todos.find(query).sort(sort).skip(skip).limit(limit).toArray(function(err, records){
     fn(records);
-    /*if(data.sort!=='priority'){fn(records);}
-    else{
-      console.log('SORTING BY PRIORITY VALUE!!!!!');
-      var sortedRecords = _.sortBy(records, function(todo){
-        Priority.findById(todo.priorityId.toString(), function(priority){
-          console.log(priority.value);
-          return priority.value;
-        });
-      });
-      fn(sortedRecords);
-    }*/
   });
 };
 

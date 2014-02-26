@@ -44,6 +44,17 @@ exports.update = function(req, res){
   });
 };
 
+exports.updateIsComplete = function(req, res){
+  init();
+
+  Todo.findById(req.body.id, function(record){
+    console.log(record);
+    record.isComplete = req.body.isComplete;
+    console.log(record);
+    record.save(function(count){if(count===1){console.log('Saved');}});
+  });
+};
+
 exports.destroy = function(req, res){
   init();
 

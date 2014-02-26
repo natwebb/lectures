@@ -12,10 +12,98 @@ table{
   width: 100%;
 }
 
-th, td {
+#priority th, td {
   width: 25%;
 }
 
+#todoTable th:first-child, td:first-child {
+  width: 10%;
+}
+
+#todoTable th:nth-child(2), td:nth-child(2) {
+  width: 20%;
+}
+
+#todoTable th:nth-child(3), td:nth-child(3) {
+  width: 15%;
+}
+
+#todoTable th:nth-child(4), td:nth-child(4) {
+  width: 15%;
+}
+
+#todoTable th:nth-child(5), td:nth-child(5) {
+  width: 30%;
+}
+
+#todoTable th:nth-child(6), td:nth-child(6) {
+  width: 10%;
+}
+
+#name, #dueDate {
+  width: 100%;
+  margin: 0px;
+}
+
+#tags {
+  width: 100%;
+}
+
+#newTodo {
+  width: 100%;
+}
+
 button {
+  margin: 0px;
+}
+
+select {
+  margin: 0px;
+}
+
+input[type='checkbox'] {
+  margin: 0px;
+}
+
+#dateHead:hover, #completeHead:hover, .tagBox:hover, #previousPage:hover, #nextPage:hover {
+  cursor: pointer;
+  color: red;
+}
+
+.tagBox {
+  float: left;
+  border: 1px dotted black;
+  padding: 2px;
+  margin: 2px;
+  border-radius: 5px;
+}
+
+.center {
+  text-align: center;
+}
+
+#toggleNewTodo {
+  position: relative;
+  top: 85px;
+  right: 40px;
+  height: 40px;
+  width: 40px;
+  background-color: gainsboro;
+  border-top: 1px solid darkgray;
+  border-bottom: 1px solid darkgray;
+  border-left: 1px solid darkgray;
+  border-radius: 5px 0px 0px 5px;
+  padding-left: 5px;
+  padding-top: 5px;
+  color: darkgray;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+#toggleNewTodo:hover {
+  color: white;
+}
+
+#toggleNewTodo div {
   margin: 0px;
 }

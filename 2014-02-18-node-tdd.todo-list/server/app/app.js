@@ -31,6 +31,7 @@ app.get('/todos', d, todos.index);
 app.get('/todos/:id', d, todos.show);
 app.get('/todos/:search/:data', d, todos.searchBy);
 app.put('/todos/:id', d, todos.update);
+app.put('/todos/isComplete/toggle', d, todos.updateIsComplete);
 app.del('/todos/:id', d, todos.destroy);
 /* --- pipeline ends   */
 
