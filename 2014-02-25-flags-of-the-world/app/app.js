@@ -17,8 +17,12 @@ var f13 = {country: 'Norway', flag:'no'};
 var f14 = {country: 'South Korea', flag:'kr'};
 var f15 = {country: 'Spain', flag:'es'};
 var f16 = {country: 'Sweden', flag:'se'};
+var f17 = {country: 'Austria', flag:'at'};
+var f18 = {country: 'Argentina', flag:'ar'};
+var f19 = {country: 'Australia', flag:'au'};
+var f20 = {country: 'Belgium', flag:'be'};
 
-global.flags = [f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11, f12, f13, f14, f15, f16];
+global.flags = [f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11, f12, f13, f14, f15, f16, f17, f18, f19, f20];
 /* End Answers */
 
 var dbname = process.env.DBNAME;

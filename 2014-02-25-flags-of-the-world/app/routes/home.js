@@ -3,7 +3,7 @@
 var _ = require('lodash');
 
 exports.index = function(req, res){
-  var random = _.random(6, 7);
+  var random = _.random(10, 10);
   var flags = _.sample(global.flags, random);
   var countries = _.map(flags, function(flag){return flag.country;});
   flags = _.map(flags, function(flag){return flag.flag;});
