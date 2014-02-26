@@ -17,13 +17,17 @@ describe('Album', function(){
     });
   });
 
-  beforeEach(function(){
+  beforeEach(function(done){
     var path = __dirname + '/../../app/static/img';
     rimraf.sync(path);
     fs.mkdirSync(path);
     var origfile = __dirname + '/../fixtures/euro.jpg';
     var copyfile = __dirname + '/../fixtures/euro-copy.jpg';
     fs.createReadStream(origfile).pipe(fs.createWriteStream(copyfile));
+
+    global.nss.db.dropDatabase(function(err, result){
+      done();
+    });
   });
 
   describe('new', function(){
@@ -47,6 +51,21 @@ describe('Album', function(){
       var oldname = __dirname + '/../fixtures/euro-copy.jpg';
       a1.addCover(oldname);
       expect(a1.cover).to.equal(path.normalize(__dirname + '/../../app/static/img/eurovacation/cover.jpg'));
+    });
+  });
+
+  describe('#insert', function(){
+    it('should insert an album into the database', function(done){
+      var o = {};
+      o.title = 'Euro Vacation';
+      o.taken = '2010-03-25';
+      var a1 = new Album(o);
+      var oldname = __dirname + '/../fixtures/euro-copy.jpg';
+      a1.addCover(oldname);
+      a1.insert(function(savedAlbum){
+        expect(savedAlbum._id.toString()).to.have.length(24);
+        done();
+      });
     });
   });
 });

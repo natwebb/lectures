@@ -4,7 +4,7 @@ module.exports = Album;
 
 var fs = require('fs');
 var path = require('path');
-//var albums = global.nss.db.collection('albums');
+var albums = global.nss.db.collection('albums');
 //var Mongo = require('mongodb');
 //var _ = require('lodash');
 
@@ -23,5 +23,11 @@ Album.prototype.addCover = function(oldpath){
   fs.renameSync(oldpath, newpath);
 
   this.cover = path.normalize(newpath);
+};
+
+Album.prototype.insert = function(callback){
+  albums.insert(this, function(err, records){
+    callback(records[0]);
+  });
 };
 
