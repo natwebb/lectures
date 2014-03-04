@@ -12,11 +12,15 @@ html(class='no-js', lang='en')
   body
     .row
       .small-8.columns
-        h1=title
+        h1#black=title
       .small-4.columns
-        button New Album
+        a.button.tiny(href='/albums/new') New Album
     .row
       .small-12.columns#albumWrapper
+        each album in albums
+          a.albumBox(href='/albums/'+album._id, style='background-image:url("'+album.cover+'")')
+            .titleBox= album.title
+            .dateBox= moment(album.taken).format('MMMM Do, YYYY')
 
     script(src='/js/vendor/jquery.js')
     script(src='/js/vendor/foundation.js')
