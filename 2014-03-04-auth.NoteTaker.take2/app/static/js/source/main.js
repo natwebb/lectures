@@ -6,32 +6,35 @@
 
   function initialize(){
     $(document).foundation();
-    //loadAlbumCovers();
-  }
-/*
-  function loadAlbumCovers(){
-    $.getJSON('/albums', function(data){
-      _.forEach(data.records, function(album){
-        makeAlbumBox(album);
-      });
-    });
+    $('#register').click(registerNewUser);
+    $('#login').click(loginUser);
   }
 
-  function makeAlbumBox(album){
-    console.log(album);
-    var $div = $('<div class="albumBox">');
-    $div.css('background-image', 'url('+album.cover.slice(53)+')');
-    $div.attr('data-id', album._id);
-
-    var $title = $('<div class="titleBox">');
-    $title.text(album.title);
-
-    var $date = $('<div class="dateBox">');
-    $date.text(album.taken.slice(0,10));
-
-    $div.append($title, $date);
-    $('#albumWrapper').append($div);
+  function registerNewUser(event){
+    var url = '/register';
+    var type = 'POST';
+    var data = $('#userData').serialize();
+    var success = returnHome;
+    $.ajax({url:url, type:type, data:data, success:success});
+    event.preventDefault();
   }
-  */
+
+  function loginUser(){
+    var url = '/login';
+    var type = 'POST';
+    var data = $('#userData').serialize();
+    var success = returnHome;
+    $.ajax({url:url, type:type, data:data, success:success});
+    event.preventDefault();
+  }
+
+  function returnHome(data){
+    if(data.result){
+      window.location.replace('/');
+    }else{
+      alert('Error, please try again!');
+    }
+  }
+
 })();
 
